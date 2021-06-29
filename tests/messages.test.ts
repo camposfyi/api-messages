@@ -68,7 +68,6 @@ describe('messages', () => {
   describe('defaults', () => {
     it('default messages are accessible', () => {
       expect(apiMessages.defaults.http.ok).toEqual('Success.');
-      // apiMessages.json
     })
   });
 
