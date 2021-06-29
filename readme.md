@@ -1,13 +1,13 @@
-###api-messages
+### api-messages
 **api-messages** is a small library to unify messages into a single place. The library contains a small set of generic messages. You must provide a file with your custom messages in the `configure` method.
 
-####Install:
+#### Install:
 ```
 npm install --save api-messages
 ```
 
 
-####Initialize:
+#### Initialize:
 ```javascript
 import ApiMessages from 'api-messages'
 const apiMessages = new ApiMessages();
@@ -16,17 +16,17 @@ apiMessages.configure({
 });
 ```
 
-####Usage
+#### Usage
 Give the path of the message from the source json file.
 ```javascript
 const messsage = apiMessages.get('errors.authentication.emailNotVerified');
 ```
 
-####Interpolation
+#### Interpolation
 You can interpolate values by passing a second object with key/values to the `get` function.<br>
 Interpolation property names in your configuration file must match object property names. Interpolation properties are surrounded as folows: `#{propertyName}`.<br>
 
-> Your typescript code
+> Typescript code
 
 ```typescript
 const messsage = apiMessages.get('errors.authentication.emailNotVerified', {
@@ -35,7 +35,7 @@ const messsage = apiMessages.get('errors.authentication.emailNotVerified', {
 });
 ```
 
-> Your json configuration file
+> JSON configuration file
 ```json
 {
   "errors": {
@@ -46,7 +46,7 @@ const messsage = apiMessages.get('errors.authentication.emailNotVerified', {
 }
 ```
 
-> Produced output
+> Output
 ```text
   Hi John. Your email john@email.com has not been verified.
 ```
@@ -58,7 +58,7 @@ The library offers a small set of generic error messages.
 const message = apiMessages.defaults.http.ok;
 ```
 
-All:
+###### Available default messages:
 ```javascript
 http: {
     ok: 'Success.',
