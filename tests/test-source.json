@@ -1,0 +1,13 @@
+{
+  "appVersion": "Version 1.0.1",
+  "success": {
+    "accountCreated": "Account created.",
+    "vehiclesArchived": "You archived #{count} vehicles in the last #{days} days."
+  },
+  "error": {
+    "general": "An error has occurred.",
+    "authorization": {
+      "emailNotVerified": "Your email is not verified."
+    }
+  }
+}
