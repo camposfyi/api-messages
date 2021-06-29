@@ -1,15 +1,13 @@
-import {DefaultApiMessages, defaultApiMessages} from './default-api-messages';
-import {ApiMessagesConfiguration} from "./api-messages-configuration";
+import { DefaultApiMessages, defaultApiMessages } from './default-api-messages';
+import { ApiMessagesConfiguration } from './api-messages-configuration';
 
 export default class ApiMessages {
-
   private messages: any;
 
   configure(configuration: ApiMessagesConfiguration): Promise<void> {
-    return import(configuration.source)
-      .then(result => {
-        this.messages = result;
-      });
+    return import(configuration.source).then((result) => {
+      this.messages = result;
+    });
   }
 
   get isInitialized(): boolean {
@@ -21,16 +19,11 @@ export default class ApiMessages {
   }
 
   get(propertyPath: string = '', replacements = {}): string {
-
-    if (!this.isInitialized) {
-      console.warn(`api-messages: attempting to call .get() before configuring.`)
-    }
-
     const props = propertyPath.split('.');
     let message = this.getPropertyValue(this.messages, props);
 
     const keys = Object.keys(replacements);
-    keys.forEach(key => {
+    keys.forEach((key) => {
       const replacementValue = this.getPropertyValue(replacements, [key]);
       message = message.replace(`#{${key}}`, replacementValue);
     });
@@ -39,9 +32,11 @@ export default class ApiMessages {
   }
 
   private getPropertyValue(obj: any, props: string[]): any {
-    return obj && props.reduce((result, prop) => {
-      return result == null ? undefined : result[prop];
-    }, obj);
+    return (
+      obj &&
+      props.reduce((result, prop) => {
+        return result == null ? undefined : result[prop];
+      }, obj)
+    );
   }
-
 }

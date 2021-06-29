@@ -22,6 +22,6 @@ export const defaultApiMessages: DefaultApiMessages = {
     forbidden: 'You are not allowed to access this resource.',
     notFound: 'the item you are looking for was not found',
     conflict: 'There is a conflict with an existing record, please check your request.',
-    internalServerError: 'An error has occurred. If the problem persists, contact customer support.'
-  }
-}
+    internalServerError: 'An error has occurred. If the problem persists, contact customer support.',
+  },
+};
